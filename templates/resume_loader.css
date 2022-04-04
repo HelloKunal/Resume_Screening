@@ -1,15 +1,24 @@
 html{
-    background-image: url("images/img4.jpg");
+    background-image: url("images/img4.jpg") ;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /* padding: 5%; */
-    padding: 10px;
+    padding: 5px;
 }
 
 @font-face {
     font-family: font;
     src: url(fonts/SITKA.TTC);
+}
+
+.header{
+    display: block;
+    padding: 5px;
+    border: 1px solid rgb(168, 196, 216);
+    border-radius: 5px;
+    box-shadow: #506791;
+    margin: 5px;
 }
 
 .form{
@@ -24,37 +33,47 @@ html{
     font-size: medium;
 }
 
+.container{
+    display: flex;
+}
+
 .left_container{
-    align-items: left;
-    vertical-align: left;
-    margin-right: 10px;
+    display: block;
+    width: 35%;
+    padding: 5px;
+    border: 1px solid rgb(168, 196, 216);
+    border-radius: 5px;
+    box-shadow: #506791;
+    margin: 5px;
+}
+
+.right_container{
+    margin: 5px;
+    float: right;
+    display: block;
+    width: 65%;
+    padding: 5px;
+    border: 1px solid rgb(168, 196, 216);
+    border-radius: 5px;
+    box-shadow: #506791;
 }
 
 .img{
-    width: 50px;
-    height: 50px;
+    width: 400px;
+    height: 400px;
     display: inline-block;
-    margin: 0px 0px 0px 15px;
+    margin: 5px;
+    opacity: 0.8;
 }
 
-.heading{
-    text-align:center;
+h1{
     font-family: font;
     font-weight: normal;
-    display: inline-block;
-    width: 52%;
-    margin: 0 0 1px 3px;
-    vertical-align: 15px;
-    text-decoration-color: antiquewhite;
+    color: antiquewhite;
 }
 
-.inner_container{
-    margin: 20px;
-    border:2px solid #333;
-    background-color:#d6ffff;
-}
-
-.small_heading{
+h2{
     font-family: font;
     font-weight: normal;
+    color: antiquewhite;
 }

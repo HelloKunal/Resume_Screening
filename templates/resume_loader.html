@@ -8,19 +8,23 @@
 <body>
     
     <form class="form" id = resumeForm method="post" enctype="multipart/form-data" target="_blank" >
-		<div class="left_container">
-			<img class="img" src="images/home_icon.png"></img>
+		
+		<div class="header">
+			<h1>Resume Ranker</h1>
 		</div>
-		<div class="right_container">
-			<h2 class="heading">Resume Ranker</h2>
 
-			<div class="inner_container">
+		<div class="container">
+			<div class="left_container">
+				<img class="img" src="images/home_icon1.png"></img>
+			</div>
+			
+			<div class="right_container">
 				<div>
-					<h3 class="small_heading">Upload Job Requirements Document</h3>
+					<h2>Upload Job Requirements Document</h2>
 					<input type="file" name="reqFile">
 				</div>
 				<div>
-					<h3 style="margin-right:90px; font-family: sans-serif;font-weight: normal">Upload Resume Files:</h3>
+					<h2>Upload Resumes (PDF)</h3>
 					<input type="file" name="resume_files" multiple>
 				</div>
 				<div style="margin-top:20px;text-align:center;">
@@ -41,6 +45,7 @@
 				</div>
 			</div>
 		</div>
+		
     </form>
 </body>
 </html>

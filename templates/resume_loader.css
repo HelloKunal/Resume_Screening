@@ -15,17 +15,14 @@ html{
 .header{
     display: block;
     padding: 5px;
-    border: 1px solid rgb(168, 196, 216);
-    border-radius: 5px;
-    box-shadow: #506791;
+    border: 1px solid rgb(63, 93, 119);
+    border-radius: 15px;
+    box-shadow: inset 0 0 25px rgb(43, 99, 145);
     margin: 5px;
 }
 
 .form{
-    background-color: rgba(53, 78, 96, 0.7);
-    border-radius: 1%;
     padding: 20px;
-
     text-align: center;
     text-decoration: none;
     font-family: font;
@@ -40,10 +37,11 @@ html{
 .left_container{
     display: block;
     width: 35%;
-    padding: 5px;
-    border: 1px solid rgb(168, 196, 216);
-    border-radius: 5px;
-    box-shadow: #506791;
+    padding: 10px;
+    padding-top: 40px;
+    border: 1px solid rgb(63, 93, 119);
+    border-radius: 15px;
+    box-shadow: inset 0 0 25px rgb(43, 99, 145);
     margin: 5px;
 }
 
@@ -52,10 +50,11 @@ html{
     float: right;
     display: block;
     width: 65%;
-    padding: 5px;
-    border: 1px solid rgb(168, 196, 216);
-    border-radius: 5px;
-    box-shadow: #506791;
+    padding: 40px;
+    border: 1px solid rgb(63, 93, 119);    
+    border-radius: 15px;
+    box-shadow: inset 0 0 25px rgb(43, 99, 145);    
+    text-align: left;
 }
 
 .img{
@@ -69,11 +68,30 @@ html{
 h1{
     font-family: font;
     font-weight: normal;
-    color: antiquewhite;
+    color: #D2D6D9;
 }
 
 h2{
     font-family: font;
     font-weight: normal;
-    color: antiquewhite;
+    color: #D2D6D9;
 }
+
+.button_box{
+    margin-top:20px;
+    text-align:center;
+}
+
+.btn{
+    width: 25%;
+    height: 45px;
+    margin: 10px;
+    color: white;
+    background-color: #076CC1;
+    border: 1px solid rgb(31, 46, 58);
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px rgb(31, 46, 58);
+    font-family: font;
+    font-size: medium;
+}
+

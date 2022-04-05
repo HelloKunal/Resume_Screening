@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8">    
+	<link rel="stylesheet" href="{{url_for('static', filename='resume_loader.css')}}" />
+    <title>Resume Results Page</title>
 </head>
 <body>
 <div>
-	<table style="border-collapse: collapse;width:500px;margin:auto;background-color:#d6ffff;">
+	<table style="border-collapse: collapse;width:500px;margin:auto;border: 5px;">
 		<tr > 
 		<td align="center" colspan="3" >
-		<h4>Resume Ranking according to the percentage match</h4>
+		<h1>Resume Ranking according to the percentage match</h1>
 		</td>
 		</tr>
          {% for item in result %}
             <tr>
-			   <td> {{ loop.index }}</td>
-               <td> {{ item[0] }} </td>
-               <td> {{ item[1] }} </td>
+			   <td><h2> {{ loop.index }} </h2></td>
+               <td><h2> {{ item[0] }} </h2></td>
+               <td><h2> {{ item[1] }} </h2></td>
             </tr>
          {% endfor %}
     </table>

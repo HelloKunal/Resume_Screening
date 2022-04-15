@@ -2,22 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="resume_results.css" />
+    <title>Results</title>
 </head>
 <body>
+    <div class="header">
+        <h1>The best Resume matches are as follows:</h1>
+    </div>
 <div>
-	<table style="border-collapse: collapse;width:500px;margin:auto;background-color:#d6ffff;">
-		<tr > 
-		<td align="center" colspan="3" >
-		<h4>Resume Ranking according to the percentage match</h4>
-		</td>
+	<table class="table">
+		<tr> 
+		    <td colspan="3" />
 		</tr>
          {% for item in result %}
-            <tr>
-			   <td> {{ loop.index }}</td>
-               <td> {{ item[0] }} </td>
-               <td> {{ item[1] }} </td>
-            </tr>
+        <tr>
+            <td> {{ loop.index }}</td>
+            <td> {{ item[0] }} </td>
+            <td> {{ item[1] }} </td>
+        </tr>
          {% endfor %}
     </table>
 </div>

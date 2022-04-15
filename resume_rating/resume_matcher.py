@@ -3,23 +3,23 @@ from resume_rating import tf_idf_cosine_similarity as tf_idf,doc2vec_comparison 
 from resume_rating import cv_cosine_similarity as cv
 import os
 
-# def process_doc2_vec_process(req_document,resume_docs):
-#     req_doc_text = doc.get_content_as_string(req_document)
-#     resume_doc_text = []
-#     final_doc_rating_list = []
-#     for doct in resume_docs:
-#         resume_doc_text.append(doc.get_content_as_string(doct))
-#     d2v.get_doc2vec_similarity(req_doc_text,resume_doc_text)
+def process_doc2_vec_process(req_document,resume_docs):
+    req_doc_text = doc.get_content_as_string(req_document)
+    resume_doc_text = []
+    final_doc_rating_list = []
+    for doct in resume_docs:
+        resume_doc_text.append(doc.get_content_as_string(doct))
+    d2v.get_doc2vec_similarity(req_doc_text,resume_doc_text)
 
-# def process_doc2vec_textract(req_document,resume_docs):
-#     req_doc_text = txt.get_content_as_string(req_document)
-#     # print('The start' * 5)
-#     resume_doc_text = []
-#     for doct in resume_docs:
-#         resume_doc_text.append(txt.get_content_as_string(doct))
-#     # print(req_doc_text)
-#     # print(resume_doc_text)
-#     d2v.get_doc2vec_similarity(req_doc_text, resume_doc_text)
+def process_doc2vec_textract(req_document,resume_docs):
+    req_doc_text = txt.get_content_as_string(req_document)
+    # print('The start' * 5)
+    resume_doc_text = []
+    for doct in resume_docs:
+        resume_doc_text.append(txt.get_content_as_string(doct))
+    # print(req_doc_text)
+    # print(resume_doc_text)
+    d2v.get_doc2vec_similarity(req_doc_text, resume_doc_text)
 
 def process_files(req_document,resume_docs):
     # req_doc_text = doc.get_content_as_string(req_document)

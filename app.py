@@ -4,8 +4,10 @@ from resume_rating import file_constants as cnst
 from resume_rating import resume_matcher
 from resume_rating import file_utils
 
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','docx'])
-app = Flask(__name__)
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg','docx'])
+app = Flask(__name__, static_url_path='',
+            static_folder='static',
+            template_folder='templates')
 app.secret_key = "secret key"
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 app.config['UPLOAD_FOLDER'] = cnst.UPLOAD_FOLDER
@@ -49,18 +51,22 @@ def check_for_file():
             filename = file.filename
             req_document = cnst.UPLOAD_FOLDER+'\\'+filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+            
+
             for resumefile in resume_files:
                 filename = resumefile.filename
+                
                 abs_paths.append(cnst.UPLOAD_FOLDER + '\\' + filename)
                 resumefile.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
                 
-            result = resume_matcher.process_files(req_document,abs_paths)
+            result = resume_matcher.process_files(req_document, abs_paths)
             for file_path in abs_paths:
                 file_utils.delete_file(file_path)
 
             return render_template("resume_results.html", result=result)
         else:
-            flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
+            flash('Allowed file types are txt, pdf, png, jpg, jpeg, docx')
             return redirect(request.url)
 
 if __name__ == "__main__":

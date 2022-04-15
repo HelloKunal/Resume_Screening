@@ -1,5 +1,5 @@
 html {
-    background-image: url("images/img4.jpg");
+    background-image: url("/images/img4.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,7 +9,7 @@ html {
 
 @font-face {
     font-family: font;
-    src: url(fonts/SITKA.TTC);
+    src: url(/fonts/SITKA.TTC);
 }
 
 .header {
@@ -41,3 +41,6 @@ h1 {
     color: #b3d2ea;
 }
 
+.columns{
+    color: rgb(63, 93, 119);
+}

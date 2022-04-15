@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="resume_results.css" />
+    <link rel="stylesheet" type="text/css" href="/css/resume_results.css" />
     <title>Results</title>
 </head>
 <body>
@@ -11,14 +11,16 @@
     </div>
 <div>
 	<table class="table">
-		<tr class="tr"> 
-		    <td colspan="3" class="td"/>
+		<tr class="columns"> 
+		    <td colspan="3">S.No.</td>
+            <td colspan="3">Candidate Resume</td>
+            <td colspan="3">Match Percentage</td>
 		</tr>
          {% for item in result %}
         <tr>
-            <td class="td"> {{ loop.index }}</td>
-            <td class="td"> {{ item[0] }} </td>
-            <td class="td"> {{ item[1] }} </td>
+            <td colspan="3"> {{ loop.index }}</td>
+            <td colspan="3"> {{ item[0] }} </td>
+            <td colspan="3"> {{ item[1] }} </td>
         </tr>
          {% endfor %}
     </table>

@@ -9,7 +9,16 @@ def process_doc2_vec_process(req_document,resume_docs):
     final_doc_rating_list = []
     for doct in resume_docs:
         resume_doc_text.append(doc.get_content_as_string(doct))
-    d2v.get_doc2vec_similarity(req_doc_text,resume_doc_text)
+    cos_sim_list= d2v.get_doc2vec_similarity(req_doc_text,resume_doc_text)
+    final_doc_rating_list = []
+    zipped_docs = zip(cos_sim_list, resume_docs)
+    sorted_doc_list = sorted(zipped_docs, key=lambda x: x[0], reverse=True)
+    for element in sorted_doc_list:
+        doc_rating_list = []
+        doc_rating_list.append(os.path.basename(element[1]))
+        doc_rating_list.append("{:.0%}".format(element[0]))
+        final_doc_rating_list.append(doc_rating_list)
+    return final_doc_rating_list
 
 def process_doc2vec_textract(req_document,resume_docs):
     req_doc_text = txt.get_content_as_string(req_document)
@@ -19,7 +28,16 @@ def process_doc2vec_textract(req_document,resume_docs):
         resume_doc_text.append(txt.get_content_as_string(doct))
     # print(req_doc_text)
     # print(resume_doc_text)
-    d2v.get_doc2vec_similarity(req_doc_text, resume_doc_text)
+    cos_sim_list = d2v.get_doc2vec_similarity(req_doc_text, resume_doc_text)
+    final_doc_rating_list = []
+    zipped_docs = zip(cos_sim_list, resume_docs)
+    sorted_doc_list = sorted(zipped_docs, key=lambda x: x[0], reverse=True)
+    for element in sorted_doc_list:
+        doc_rating_list = []
+        doc_rating_list.append(os.path.basename(element[1]))
+        doc_rating_list.append("{:.0%}".format(element[0]))
+        final_doc_rating_list.append(doc_rating_list)
+    return final_doc_rating_list
 
 def process_files(req_document,resume_docs):
     # req_doc_text = doc.get_content_as_string(req_document)

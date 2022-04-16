@@ -1,5 +1,5 @@
 html{
-    background-image: url("images/img4.jpg") ;
+    background-image: url("img4.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,23 +9,20 @@ html{
 
 @font-face {
     font-family: font;
-    src: url(fonts/SITKA.TTC);
+    src: url(/fonts/SITKA.TTC);
 }
 
 .header{
     display: block;
     padding: 5px;
-    border: 1px solid rgb(168, 196, 216);
-    border-radius: 5px;
-    box-shadow: #506791;
+    border: 1px solid rgb(63, 93, 119);
+    border-radius: 15px;
+    box-shadow: inset 0 0 25px rgb(43, 99, 145);
     margin: 5px;
 }
 
 .form{
-    background-color: rgba(53, 78, 96, 0.7);
-    border-radius: 1%;
     padding: 20px;
-
     text-align: center;
     text-decoration: none;
     font-family: font;
@@ -40,10 +37,11 @@ html{
 .left_container{
     display: block;
     width: 35%;
-    padding: 5px;
-    border: 1px solid rgb(168, 196, 216);
-    border-radius: 5px;
-    box-shadow: #506791;
+    padding: 10px;
+    padding-top: 40px;
+    border: 1px solid rgb(63, 93, 119);
+    border-radius: 15px;
+    box-shadow: inset 0 0 25px rgb(43, 99, 145);
     margin: 5px;
 }
 
@@ -52,10 +50,11 @@ html{
     float: right;
     display: block;
     width: 65%;
-    padding: 5px;
-    border: 1px solid rgb(168, 196, 216);
-    border-radius: 5px;
-    box-shadow: #506791;
+    padding: 40px;
+    border: 1px solid rgb(63, 93, 119);    
+    border-radius: 15px;
+    box-shadow: inset 0 0 25px rgb(43, 99, 145);    
+    text-align: left;
 }
 
 .img{
@@ -69,11 +68,81 @@ html{
 h1{
     font-family: font;
     font-weight: normal;
-    color: antiquewhite;
+    color: #D2D6D9;
 }
 
 h2{
     font-family: font;
     font-weight: normal;
-    color: antiquewhite;
+    color: #D2D6D9;
+}
+
+.button_box{
+    margin-top:20px;
+    text-align:center;
+}
+
+.btn{
+    width: 25%;
+    height: 50px;
+    margin: 10px;
+    color: white;
+    background-color: #076CC1;
+    border-radius: 10px;
+    font-family: font;
+    font-size: medium;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    position: relative;
+    border: none;
+    padding: 17px;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    box-shadow: 0 5px 5px #19212a;
+}
+    
+.btn:hover {
+    background: #D2D6D9;
+    box-shadow: 0px 0px 10px 5px rgb(43, 99, 145);
+    color: rgb(15, 16, 57);
+    /*font-weight: bolder;*/
+    transition: .5s;
+}
+
+.btn:after {
+    content: "";
+    background: rgb(43, 99, 145);
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 1s
+}
+
+.btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 1s
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+/* .btn:hover{
+    background-color: transparent;
+    border: 1px solid rgb(63, 93, 119);
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px rgb(43, 99, 145);
+}
+ */
+
+.inp{
+    color: #D2D6D9;
 }

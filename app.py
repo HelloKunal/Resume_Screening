@@ -3,6 +3,9 @@ from flask import Flask, flash, request, redirect, render_template,url_for
 from resume_rating import file_constants as cnst
 from resume_rating import resume_matcher
 from resume_rating import file_utils
+from resume_classification import resume_classifier
+from flask import make_response
+
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg','docx'])
 app = Flask(__name__, static_url_path='',
@@ -16,7 +19,15 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
-def upload_form():
+def home():
+    return render_template('homepage.html')
+
+@app.route('/classify')
+def classify():
+    return render_template('resume_classifier.html')
+
+@app.route('/rating')
+def rating():
     return render_template('resume_loader.html')
 
 @app.route('/failure')
@@ -27,8 +38,46 @@ def failure():
 def success(name):
    return 'Files %s has been selected' %name
 
-@app.route('/', methods=['POST', 'GET'])
-def check_for_file():
+@app.route('/classes')
+def classes():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'resume_files' not in request.files:
+           flash('Select at least one resume File to proceed further')
+           return redirect(request.url)
+        file = request.files['reqFile']
+        resume_files = request.files.getlist("resume_files")
+        if len(resume_files) == 0:
+            flash('Select atleast one resume file to proceed further')
+            return redirect(request.url)
+        if ((file and allowed_file(file.filename)) and (len(resume_files) > 0)):
+            #filename = secure_filename(file.filename)
+            abs_paths = []
+            filename = file.filename
+            req_document = cnst.UPLOAD_FOLDER+'\\'+filename
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+            for resumefile in resume_files:
+                filename = resumefile.filename
+
+                abs_paths.append(cnst.UPLOAD_FOLDER + '\\' + filename)
+                resumefile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            
+            result = resume_classifier.process_files(abs_paths)
+            for file_path in abs_paths:
+                file_utils.delete_file(file_path)
+            
+            response = make_response(list(result), 200)
+            response.mimetype = 'text/plain'
+            
+            return render_template("resume_classes.html", result=result)
+    
+    return render_template("resume_classes.html", result=str("NIL"))
+
+
+
+@app.route('/ratings', methods=['POST', 'GET'])
+def ratings():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'reqFile' not in request.files:
@@ -52,8 +101,6 @@ def check_for_file():
             req_document = cnst.UPLOAD_FOLDER+'\\'+filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-            
-
             for resumefile in resume_files:
                 filename = resumefile.filename
                 
@@ -64,10 +111,14 @@ def check_for_file():
             for file_path in abs_paths:
                 file_utils.delete_file(file_path)
 
+            response = make_response(list(result), 200)
+            response.mimetype = 'text/plain'
             return render_template("resume_results.html", result=result)
         else:
             flash('Allowed file types are txt, pdf, png, jpg, jpeg, docx')
             return redirect(request.url)
+    
+    return render_template("resume_results.html", result=str("NIL"))
 
 if __name__ == "__main__":
     app.run(debug = True)

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/resume_loader.css" />
+    <title>Resume Classification Page</title>
+</head>
+
+<body>
+
+    <form class="form" id=resumeForm method="post" enctype="multipart/form-data" target="_blank">
+
+        <div class="header">
+            <h1>Resume Classifier</h1>
+        </div>
+
+        <div class="container">
+            <div class="left_container">
+                <img class="img" src="/images/home_icon1.png"></img>
+            </div>
+
+            <div class="right_container">
+                <div>
+                    <h2>Upload Resumes (PDF)</h3>
+                        <input class="inp" type="file" name="resume_files" multiple>
+                </div>
+                <div class="button_box">
+                    <a href="/classes"><input type='button' class="btn" value='Classify'></a>
+                </div>
+                <div style="margin:20px">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+
+    </form>
+</body>
+
+</html>

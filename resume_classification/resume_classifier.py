@@ -40,8 +40,10 @@ def logistic_regression(resume_docs):
 
     for resume in resume_docs:
         res=[]
-        res.append(os.path.basename(resume[0]))
-        res.append(lr.predict(resume[1]))
+        res.append(resume.split(' ')[0])
+        temp= lr.predict([resume])
+        for t in temp:
+            res.append(t)
         result.append(res)
 
     return result

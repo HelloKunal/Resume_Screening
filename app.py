@@ -3,7 +3,7 @@ from flask import Flask, flash, request, redirect, render_template,url_for
 from resume_rating import file_constants as cnst
 from resume_rating import resume_matcher
 from resume_rating import file_utils
-from Resume_Screening import resume_classifier
+from resume_classification import resume_classifier
 from flask import make_response
 
 

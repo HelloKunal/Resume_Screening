@@ -42,5 +42,10 @@ h1 {
 }
 
 .columns{
-    color: rgb(63, 93, 119);
+    color: #4c9bdc;
+    font-size: large ;
+}
+
+.rows{
+    margin: 20px;
 }

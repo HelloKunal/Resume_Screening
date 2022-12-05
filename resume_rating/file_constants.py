@@ -1,1 +1,1 @@
-UPLOAD_FOLDER = 'E:\\NISHI\\Others\\Resume Screening\\temp'
+UPLOAD_FOLDER = 'C:\\Users\\pawar\\Documents\\Temp'
